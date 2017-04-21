@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Specification Create";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@model IEnumerable<AbstergoCommerce.WebUI.Models.SpecificationType>
+    
+
+
+<br><br><br><br>
+<br>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Add specs
+            </header>
+            <div class="panel-body">
+                <form class="form-horizontal tasi-form" method="post" action="/Admin/SpecificationCreate">
+                    <select class="form-control m-bot15" name="SpecTypeID">
+                        @foreach (var type in Model)
+                        {
+                            <option value="@type.Id">
+                                @type.Name
+                            </option>
+                        }
+                    </select>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Specs Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="Description">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-success" type="submit">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

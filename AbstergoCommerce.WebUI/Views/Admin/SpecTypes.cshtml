@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Spec Types";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@model IEnumerable<AbstergoCommerce.WebUI.Models.SpecificationType>
+    
+<section class="panel">
+    <header class="panel-heading">
+        Specification Type
+    </header>
+    <div class="panel-body">
+        <div class="adv-table editable-table ">
+            <br>
+            <div class="clearfix">
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="@Url.Action("SpecTypeCreate","Admin")">
+                            Add New Spec type <i class="icon-plus"></i>
+                        </a>
+                    </div>
+
+            </div>
+            <br>
+            <div class="space15"></div>
+            <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                <thead>
+                    <tr>
+                        <th>Spec type Name</th>
+                        <th>Descrription</th>
+                        <th>Category</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var type in Model)
+                    {
+                        <tr class="">
+                            <td>@type.Name</td>
+                            <td>@type.Description</td>
+                            @if (type.Category != null)
+                            {
+                                <td>@type.Category.Name</td>
+                            }
+
+                            <td>
+                                <a class="edit" href="/Admin/SpecTypeEdit/@type.Id">
+                                    <i class="icon-pencil"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="delete" href="/Admin/SpecTypeDelete/@type.Id">
+                                    <i class="icon-trash"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

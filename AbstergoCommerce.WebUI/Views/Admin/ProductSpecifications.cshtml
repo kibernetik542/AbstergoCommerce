@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Product Specifications";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@model IEnumerable<AbstergoCommerce.WebUI.Models.ProductSpecification>
+    
+
+
+<section class="panel">
+    <header class="panel-heading">
+      Product  Specification 
+    </header>
+    <div class="panel-body">
+        <div class="adv-table editable-table ">
+            <br>
+            <div class="clearfix">
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="@Url.Action("ProductSpecCreate","Admin")">
+                        Add New Product Spec <i class="icon-plus"></i>
+                    </a>
+                </div>
+
+            </div>
+            <br>
+            <div class="space15"></div>
+            <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Spec type Name</th>
+                        <th>Specification</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var spec in Model)
+                    {
+                        <tr class="">
+                            @if (spec.Product != null)
+                            {
+                                <td>@spec.Product.Name</td>
+                            }
+                            @if (spec.SpecificationType != null)
+                            {
+                                <td>@spec.SpecificationType.Name</td>
+                            }
+                            @if (spec.Specification != null)
+                            {
+                                <td>@spec.Specification.Name</td>
+                            }
+
+                            <td>
+                                <a class="edit" href="#">
+                                    <i class="icon-pencil"></i>
+                                </a>
+                            </td>
+                            @if (spec.Product != null && spec.SpecificationType != null
+                          && spec.Specification != null)
+                            {
+                                <td>
+                                    <a class="delete" href="@Url.Action("ProductSpecDelete","Admin",new {productId = @spec.ProductID,typeId = @spec.SpecTypeID,specId = @spec.SpecificationID})">
+                                        <i class="icon-trash"></i>
+                                    </a>
+                                </td>
+                            }
+                           
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

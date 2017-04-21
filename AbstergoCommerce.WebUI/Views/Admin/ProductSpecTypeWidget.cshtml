@@ -1,0 +1,18 @@
+﻿@model IEnumerable<AbstergoCommerce.WebUI.Models.SpecificationType>
+    
+
+<div class="form-group">
+    <label class="col-lg-2 control-label">
+        Spec type:
+    </label>
+    <div class="col-lg-10">
+        <select class="form-control m-bot15" name="Id">
+            @foreach (var type in Model)
+            {
+                <option value="@type.Id">
+                    @type.Name
+                </option>
+            }
+        </select>
+    </div>
+</div>
