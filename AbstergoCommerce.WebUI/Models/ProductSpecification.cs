@@ -11,6 +11,7 @@ namespace AbstergoCommerce.WebUI.Models
     {
         [Key]
         [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ProductID { get; set; }
 
         [Key]

@@ -55,7 +55,7 @@ namespace AbstergoCommerce.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult SpecificationCreateCreateBrand(Brand brand, HttpPostedFileBase fileUpload)
+        public ActionResult CreateBrand(Brand brand, HttpPostedFileBase fileUpload)
         {
             int imgId = -1;
             if (fileUpload != null)
@@ -187,5 +187,15 @@ namespace AbstergoCommerce.WebUI.Controllers
                 return PartialView(data);
             }
         }
+
+        [HttpPost]
+        public ActionResult ProductSpecCreate(ProductSpecification ps)
+        {
+            db.ProductSpecifications.Add(ps);
+            db.SaveChanges();
+            return RedirectToAction("ProductSpecifications");
+        }
+
+
     }
 }
