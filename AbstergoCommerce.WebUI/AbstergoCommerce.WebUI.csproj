@@ -1880,6 +1880,8 @@
     <Compile Include="App_Class\Settings.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2127,6 +2129,13 @@
     <Content Include="Views\Admin\ProdutSpecWidget.cshtml" />
     <Content Include="Views\Admin\ProductSpecCreate.cshtml" />
     <Content Include="Views\Admin\ImageAdd.cshtml" />
+    <Content Include="Views\Shared\SiteLayout.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Home\Slider.cshtml" />
+    <Content Include="Views\Home\NewProducts.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\Fashion.cshtml" />
+    <Content Include="Views\Home\Brands.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2138,6 +2147,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\BrandImage\" />
     <Folder Include="Content\ProductImage\Small\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
