@@ -1,4 +1,5 @@
-﻿using AbstergoCommerce.WebUI.Models;
+﻿using AbstergoCommerce.WebUI.App_Class;
+using AbstergoCommerce.WebUI.Models;
 using System;
 using System.Configuration;
 using System.Drawing;
@@ -69,8 +70,7 @@ namespace AbstergoCommerce.WebUI.Controllers
                 Bitmap bmp = new Bitmap(img, width, height);
                 bmp.Save(Server.MapPath(name));
 
-                Models.Image pic = new Models.Image();
-                pic.MedUrl = name;
+                Models.Image pic = new Models.Image { MedUrl = name };
                 db.Images.Add(pic);
                 db.SaveChanges();
                 if (pic.Id != null)
@@ -196,6 +196,45 @@ namespace AbstergoCommerce.WebUI.Controllers
             return RedirectToAction("ProductSpecifications");
         }
 
+        public ActionResult ImageAdd(int id)
+        {
+            return View(id);
+        }
+
+        [HttpPost]
+        public ActionResult ImageAdd(int pId, HttpPostedFileBase fileUpload)
+        {
+            if (fileUpload != null)
+            {
+                Image img = Image.FromStream(fileUpload.InputStream);
+                Bitmap medImage = new Bitmap(img, Settings.ProductMediumSize);
+                Bitmap bigImage = new Bitmap(img, Settings.ProductBigSize);
+
+                string medUrl = "/Content/ProductImage/Medium/" + Guid.NewGuid() +
+                    Path.GetExtension(fileUpload.FileName);
+
+                string bigUrl = "/Content/ProductImage/Big/" + Guid.NewGuid() +
+                    Path.GetExtension(fileUpload.FileName);
+
+                medImage.Save(Server.MapPath(medUrl));
+                bigImage.Save(Server.MapPath(bigUrl));
+
+                Models.Image image = new Models.Image
+                {
+                    BigUrl = bigUrl,
+                    MedUrl = medUrl,
+                    ProductID = pId
+                };
+                if (db.Images.FirstOrDefault(x => x.ProductID == pId && x.Defaault == false) != null)
+                    image.Defaault = true;
+                else
+                    image.Defaault = false;
+                db.Images.Add(image);
+                db.SaveChanges();
+                return View(pId);
+            }
+            return View(pId);
+        }
 
     }
 }

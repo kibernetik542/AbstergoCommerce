@@ -1720,6 +1720,14 @@
     <Content Include="Content\Admin\todo_list.html" />
     <Content Include="Content\Admin\widget.html" />
     <Content Include="Content\Admin\xchart.html" />
+    <Content Include="Content\ProductImage\Big\73f627b3-674a-47bd-8cc1-806457dc742d.jpg" />
+    <Content Include="Content\ProductImage\Big\8d036144-f16c-4284-bc11-a5a145059e16.jpg" />
+    <Content Include="Content\ProductImage\Big\b90d8fc5-8c99-4b15-8d18-5537ba687945.jpg" />
+    <Content Include="Content\ProductImage\Big\f0bd6353-10de-4f52-82a2-99109c8f7e0e.jpg" />
+    <Content Include="Content\ProductImage\Medium\870328cd-44af-4d43-a39c-02d3b893bc30.jpg" />
+    <Content Include="Content\ProductImage\Medium\871bbf14-b111-4457-97b1-361eb651fcbe.jpg" />
+    <Content Include="Content\ProductImage\Medium\910fef8c-277a-413a-861b-01213dfb36cb.jpg" />
+    <Content Include="Content\ProductImage\Medium\dec16af5-df35-4423-a138-94884e09ea5b.jpg" />
     <Content Include="Content\Zeon\about.html" />
     <Content Include="Content\Zeon\all-products.html" />
     <Content Include="Content\Zeon\blog.html" />
@@ -1869,6 +1877,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Class\Settings.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2117,6 +2126,7 @@
     <Content Include="Views\Admin\ProductSpecTypeWidget.cshtml" />
     <Content Include="Views\Admin\ProdutSpecWidget.cshtml" />
     <Content Include="Views\Admin\ProductSpecCreate.cshtml" />
+    <Content Include="Views\Admin\ImageAdd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2127,6 +2137,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\BrandImage\" />
+    <Folder Include="Content\ProductImage\Small\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
