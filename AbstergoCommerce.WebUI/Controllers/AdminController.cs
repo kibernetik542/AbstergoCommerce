@@ -236,5 +236,33 @@ namespace AbstergoCommerce.WebUI.Controllers
             return View(pId);
         }
 
+        public ActionResult SliderImages()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SliderImageAdd(HttpPostedFileBase fileUpload)
+        {
+
+            if (fileUpload != null)
+            {
+                Image img = Image.FromStream(fileUpload.InputStream);
+                Bitmap bmp = new Bitmap(img, Settings.SliderImageSize);
+
+                string Url = "/Content/SliderImage/" + Guid.NewGuid() +
+                   Path.GetExtension(fileUpload.FileName);
+
+                bmp.Save(Server.MapPath(Url));
+
+                Models.Image image = new Models.Image
+                {
+                    BigUrl = Url
+                };
+                db.Images.Add(image);
+                db.SaveChanges();
+            }
+            return RedirectToAction("SliderImages");
+        }
     }
 }

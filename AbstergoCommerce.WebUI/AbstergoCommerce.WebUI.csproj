@@ -1877,6 +1877,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Class\Cart.cs" />
     <Compile Include="App_Class\Settings.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -2134,8 +2135,9 @@
     <Content Include="Views\Home\Slider.cshtml" />
     <Content Include="Views\Home\NewProducts.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
-    <Content Include="Views\Home\Fashion.cshtml" />
     <Content Include="Views\Home\Brands.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\SliderImages.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2147,6 +2149,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\BrandImage\" />
     <Folder Include="Content\ProductImage\Small\" />
+    <Folder Include="Content\SliderImage\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <PropertyGroup>

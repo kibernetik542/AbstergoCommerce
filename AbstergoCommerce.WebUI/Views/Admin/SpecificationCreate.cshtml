@@ -17,7 +17,7 @@
                 Add specs
             </header>
             <div class="panel-body">
-                <form class="form-horizontal tasi-form" method="post" action="/Admin/SpecificationCreate">
+                <form class="form-horizontal tasi-form" method="post" action="@Url.Action("SpecificationCreate","Admin")">
                     <select class="form-control m-bot15" name="SpecTypeID">
                         @foreach (var type in Model)
                         {

@@ -33,5 +33,21 @@ namespace AbstergoCommerce.WebUI.App_Class
             }
 
         }
+
+        public static Size SliderImageSize
+        {
+            get
+            {
+                Size sz = new Size
+                {
+                    Width = Convert.ToInt32(ConfigurationManager.AppSettings["SliderWidth"]),
+                    Height = Convert.ToInt32(ConfigurationManager.AppSettings["SliderHeigth"])
+                };
+                return sz;
+            }
+
+        }
+
+
     }
 }

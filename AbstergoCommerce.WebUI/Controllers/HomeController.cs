@@ -1,9 +1,12 @@
-﻿using System.Web.Mvc;
+﻿using AbstergoCommerce.WebUI.Models;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace AbstergoCommerce.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         // GET: Home
         public ActionResult Index()
         {
@@ -32,12 +35,14 @@ namespace AbstergoCommerce.WebUI.Controllers
 
         public PartialViewResult Slider()
         {
-            return PartialView();
+            var data = db.Images.Where(x => x.BigUrl.Contains("Slider")).ToList();
+            return PartialView(data);
         }
 
         public PartialViewResult NewProducts()
         {
-            return PartialView();
+            var data = db.Products.ToList();
+            return PartialView(data);
         }
 
         public PartialViewResult Services()
@@ -45,14 +50,14 @@ namespace AbstergoCommerce.WebUI.Controllers
             return PartialView();
         }
 
-        public PartialViewResult Fashion()
-        {
-            return PartialView();
-        }
+
 
         public PartialViewResult Brands()
         {
-            return PartialView();
+            var data = db.Brands.ToList();
+            return PartialView(data);
         }
+
+
     }
 }

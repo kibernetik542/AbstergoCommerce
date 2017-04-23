@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<AbstergoCommerce.WebUI.Models.Brand>
+
 <div class="box">
     <div class="container">
         <div class="tesla-carousel" data-tesla-plugin="carousel" data-tesla-container=".tesla-carousel-items" data-tesla-item=">div" data-tesla-autoplay="false" data-tesla-rotate="false">
@@ -13,11 +14,15 @@
             </div>
             <div class="row">
                 <div class="tesla-carousel-items">
-                    <div class="col-md-2 col-xs-6">
-                        <a href="#">
-                            <img src="images/partners/1.png" alt="brand" />
-                        </a>
-                    </div>
+                    @foreach (var brand in Model)
+                    {
+                        <div class="col-md-2 col-xs-6">
+                            <a href="#">
+                                <img src="@brand.Image.MedUrl" alt="brand" />
+                            </a>
+                        </div>
+                    }
+                   
 
                 </div>
 
