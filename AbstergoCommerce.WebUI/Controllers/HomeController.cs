@@ -8,15 +8,9 @@ namespace AbstergoCommerce.WebUI.Controllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: Home
-        public ActionResult Index()
-        {
-            return View();
-        }
+        public ActionResult Index() => View();
 
-        public PartialViewResult Cart()
-        {
-            return PartialView();
-        }
+        public PartialViewResult Cart() => PartialView();
 
         public ActionResult Categories()
         {
@@ -45,11 +39,7 @@ namespace AbstergoCommerce.WebUI.Controllers
             return PartialView(data);
         }
 
-        public PartialViewResult Services()
-        {
-            return PartialView();
-        }
-
+        public PartialViewResult Services() => PartialView();
 
 
         public PartialViewResult Brands()

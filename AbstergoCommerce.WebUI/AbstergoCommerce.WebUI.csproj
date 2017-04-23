@@ -1720,14 +1720,25 @@
     <Content Include="Content\Admin\todo_list.html" />
     <Content Include="Content\Admin\widget.html" />
     <Content Include="Content\Admin\xchart.html" />
+    <Content Include="Content\BrandImage\0a97cd41-3685-4fd4-a9c9-93283a0faaa4.png" />
+    <Content Include="Content\BrandImage\47c2be32-082d-4bbe-b916-e5756c7a9eb7.jpg" />
+    <Content Include="Content\BrandImage\e7a3d6f6-0a43-45db-8f7b-456104d18493.png" />
     <Content Include="Content\ProductImage\Big\73f627b3-674a-47bd-8cc1-806457dc742d.jpg" />
     <Content Include="Content\ProductImage\Big\8d036144-f16c-4284-bc11-a5a145059e16.jpg" />
+    <Content Include="Content\ProductImage\Big\a3f869f4-3ff2-4fc5-abaf-892c9d90984d.jpg" />
     <Content Include="Content\ProductImage\Big\b90d8fc5-8c99-4b15-8d18-5537ba687945.jpg" />
+    <Content Include="Content\ProductImage\Big\e39c6b1c-0be0-4287-ba2a-801cc7e48cef.jpg" />
     <Content Include="Content\ProductImage\Big\f0bd6353-10de-4f52-82a2-99109c8f7e0e.jpg" />
+    <Content Include="Content\ProductImage\Medium\662b3ade-506a-461b-a5fd-2267daa2e880.jpg" />
     <Content Include="Content\ProductImage\Medium\870328cd-44af-4d43-a39c-02d3b893bc30.jpg" />
     <Content Include="Content\ProductImage\Medium\871bbf14-b111-4457-97b1-361eb651fcbe.jpg" />
     <Content Include="Content\ProductImage\Medium\910fef8c-277a-413a-861b-01213dfb36cb.jpg" />
+    <Content Include="Content\ProductImage\Medium\95d1c1b5-8990-4e18-8ae4-1aced381c677.jpg" />
     <Content Include="Content\ProductImage\Medium\dec16af5-df35-4423-a138-94884e09ea5b.jpg" />
+    <Content Include="Content\SliderImage\15b57ea4-56f9-46cb-b8bd-073ef6df6dca.jpg" />
+    <Content Include="Content\SliderImage\29d09604-9d2c-4e6f-a8b6-79725e6dae4b.jpg" />
+    <Content Include="Content\SliderImage\a506480e-77fb-4c7c-b2b0-5142ea853822.jpg" />
+    <Content Include="Content\SliderImage\a89b7c2d-3f47-4b44-88cc-ffb50e76c31f.jpg" />
     <Content Include="Content\Zeon\about.html" />
     <Content Include="Content\Zeon\all-products.html" />
     <Content Include="Content\Zeon\blog.html" />
@@ -2147,9 +2158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\BrandImage\" />
     <Folder Include="Content\ProductImage\Small\" />
-    <Folder Include="Content\SliderImage\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <PropertyGroup>
