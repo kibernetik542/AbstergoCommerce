@@ -1,4 +1,5 @@
-﻿using AbstergoCommerce.WebUI.Models;
+﻿using AbstergoCommerce.WebUI.App_Class;
+using AbstergoCommerce.WebUI.Models;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -10,7 +11,13 @@ namespace AbstergoCommerce.WebUI.Controllers
         // GET: Home
         public ActionResult Index() => View();
 
-        public PartialViewResult Cart() => PartialView();
+        public PartialViewResult Cart()
+        {
+            if (HttpContext.Session["ActiveCart"] != null)
+                return PartialView((Cart)HttpContext.Session["ActiveCart"]);
+            else
+                return PartialView();
+        }
 
         public ActionResult Categories()
         {
@@ -48,6 +55,19 @@ namespace AbstergoCommerce.WebUI.Controllers
             return PartialView(data);
         }
 
+        public void AddtoCart(int id)
+        {
+            CartItem ci = new CartItem();
+            Product p = db.Products.FirstOrDefault(x => x.Id == id);
+
+            ci.Product = p;
+            ci.Item = 1;
+            ci.Discount = 0;
+            Cart c = new Cart();
+            c.AddtoCart(ci);
+
+
+        }
 
     }
 }

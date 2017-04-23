@@ -30,10 +30,30 @@ namespace AbstergoCommerce.WebUI.App_Class
 
         public void AddtoCart(CartItem ci)
         {
-            if (Products.Any(x => x.Product.Id == ci.Product.Id))
-                Products.FirstOrDefault(x => x.Product.Id == ci.Product.Id).Item++;
+            if (HttpContext.Current.Session["ActiveCart"] != null)
+            {
+                Cart c = (Cart)HttpContext.Current.Session["ActiveCart"];
+
+                if (c.Products.Any(x => x.Product.Id == ci.Product.Id))
+                {
+                    c.Products.FirstOrDefault(x => x.Product.Id == ci.Product.Id).Item++;
+                }
+
+                else
+                {
+                    c.Products.Add(ci);
+
+                }
+            }
             else
-                Products.Add(ci);
+            {
+                Cart c = new Cart();
+                c.Products.Add(ci);
+
+                HttpContext.Current.Session["ActiveCart"] = c;
+            }
+
+
         }
 
         public decimal TotalAmount => Products.Sum(x => x.Total);

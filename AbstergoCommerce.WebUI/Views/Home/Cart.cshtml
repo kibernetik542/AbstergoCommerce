@@ -1,22 +1,55 @@
-﻿<div class="cart-all">
-    <i class="icon-19" title="19"></i>$ (234)
+﻿
+@model AbstergoCommerce.WebUI.App_Class.Cart
+
+
+
+<div class="cart-all">
+    <i class="icon-19" title="19"></i>
+    @if (Model != null)
+    {
+        @Model.TotalAmount.ToString("c")
+    }
+    else
+    {
+        <span>O $</span>
+    }
     <div class="inside-cart">
-        <p>2 products in the shopping bag</p>
+        <p>
+            @if (Model != null)
+            {
+                <span>There @Model.Products.Sum(x => x.Item) item(s) in cart</span>
+            }
+            else
+            {
+                <span>There are no item(s) in cart</span>
+            }
+        </p>
         <ul>
-            <li>
-                <div class="inside-cart-image"><img src="images/photos/image-9.jpg" alt="product name" /></div>
-                <button>x</button>
-                <a href="product.html">Stripe boucle</a>
-                <p>Unit price 50$</p>
-                <p>Q-ty: 1</p>
-            </li>
-            <li>
-                <div class="inside-cart-image"><img src="images/photos/image-8.jpg" alt="product name" /></div>
-                <button>x</button>
-                <a href="product.html">Stripe boucle</a>
-                <p>Unit price 75$</p>
-                <p>Q-ty: 2</p>
-            </li>
+            @if (Model != null)
+            {
+                foreach (var item in Model.Products)
+                {
+                    <li>
+                        <div class="inside-cart-image">
+                            @if (item.Product.Images != null)
+                            {
+                                <img src="@item.Product.Images.FirstOrDefault(x => x.Defaault == true).SmallUrl" 
+                                     alt="product name" />
+                            }
+                          
+                        </div>
+                        <button>x</button>
+                            <a href="/Home/ProductDetail/@item.Product.Name">
+                                @item.Product.Name
+                            </a>
+
+                        <p>Total : @item.Total.ToString("c")</p>
+                        <p>Item : @item.Item</p>
+                    </li>
+                }
+            }
+         
+
         </ul>
     </div>
 </div>

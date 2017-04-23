@@ -4,8 +4,27 @@
 <script src="~/Content/Zeon/js/jquery-1.10.0.min.js"></script>
 <script>
     $(function() {
-        $("#addtoCart").click(function() {
-            var id = $(this).attr("name");
+        $(".addtoCart").click(function() {
+            var pId = $(this).attr("name");
+
+            $.ajax({
+                type: 'GET',
+                url: "/Home/AddtoCart",
+                data: { id: pId },
+                success: function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: "/Home/Cart",
+                        success: function Retrieve(datum) {
+                            $(".cart-all").html('');
+                            $(".cart-all").html(datum);
+                        }
+                    });
+                },
+                error: function() {
+                    alert("failed");
+                }
+            });
         });
     })
 </script>
@@ -44,7 +63,7 @@
                         <h1><a href="/Home/ProductDetail/@product.Name">@product.Name</a></h1>
                         <p>@product.Description</p>
                         <div class="product-price">
-                            <a href="#" id="addtoCart" name="@product.Id">
+                            <a href="#" class="addtoCart" name="@product.Id">
                                 <i class="icon-257" title="add to cart"></i>
                             </a>
                           
