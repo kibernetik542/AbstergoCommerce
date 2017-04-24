@@ -1,7 +1,33 @@
 ﻿
 @model AbstergoCommerce.WebUI.App_Class.Cart
 
+<script src="~/Content/Zeon/js/jquery-1.10.0.min.js"></script>
+<script>
+    $(function() {
+        $(".pDelete").click(function () {
+            var pId = $(this).attr("name");
 
+            $.ajax({
+                type: "GET",
+                url: "/Home/DeleteFromCart",
+                data: { id: pId },
+                success: function() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Home/Cart",
+                        success: function(datum) {
+                            $(".cart-all").html('');
+                            $(".cart-all").html(datum);
+                        }
+                    });
+                },
+                error: function() {
+                   
+                }
+            });
+        });
+    });
+</script>
 
 <div class="cart-all">
     <i class="icon-19" title="19"></i>
@@ -33,12 +59,12 @@
                         <div class="inside-cart-image">
                             @if (item.Product.Images != null)
                             {
-                                <img src="@item.Product.Images.FirstOrDefault(x => x.Defaault == true).SmallUrl" 
+                                <img src="@item.Product.Images.FirstOrDefault(x => x.Defaault == true).MedUrl" 
                                      alt="product name" />
                             }
                           
                         </div>
-                        <button>x</button>
+                       <a class="pDelete" name @item.Product.Id>x</a>
                             <a href="/Home/ProductDetail/@item.Product.Name">
                                 @item.Product.Name
                             </a>

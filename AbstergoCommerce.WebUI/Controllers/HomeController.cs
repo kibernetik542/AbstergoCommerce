@@ -69,5 +69,29 @@ namespace AbstergoCommerce.WebUI.Controllers
 
         }
 
+        public ActionResult ProductDetail()
+        {
+            return View();
+        }
+
+        public void DeleteFromCart(int id)
+        {
+            if (HttpContext.Session["ActiveCart"] != null)
+            {
+                App_Class.Cart c = (App_Class.Cart)HttpContext.Session["ActiveCart"];
+
+                if (c.Products.FirstOrDefault(x => x.Product.Id == id).Item > 1)
+                {
+                    c.Products.FirstOrDefault(x => x.Product.Id == id).Item--;
+                }
+                else
+                {
+                    CartItem ci = c.Products.FirstOrDefault(x => x.Product.Id == id);
+                    c.Products.Remove(ci);
+                }
+
+
+            }
+        }
     }
 }
